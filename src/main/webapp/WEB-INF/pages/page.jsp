@@ -16,7 +16,6 @@
 
 <spring:url var="css9" value="https://cdn.datatables.net/1.10.22/css" />
 <spring:url var="img" value="/dist/img" />
-
 <spring:url var="js1" value="/plugins/bootstrap/js" />
 <spring:url var="js2" value="/plugins/chart.js" />
 <spring:url var="js3" value="/plugins/sparklines" />
@@ -64,8 +63,10 @@
   
   <link rel="stylesheet" href="${css9}/jquery.dataTables.min.css">
   
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="${css5}/mycss.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery-1.12.4.min.js" type="text/javascript"></script>
+  
   
   <script>
   
