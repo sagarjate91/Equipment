@@ -14,6 +14,7 @@
 <spring:url var="css7" value="/plugins/daterangepicker" />
 <spring:url var="css8" value="/plugins/summernote" />
 
+<spring:url var="css9" value="https://cdn.datatables.net/1.10.22/css" />
 <spring:url var="img" value="/dist/img" />
 
 <spring:url var="js1" value="/plugins/bootstrap/js" />
@@ -31,6 +32,8 @@
 <spring:url var="js13" value="/dist/js/pages" />
 <spring:url var="js14" value="/plugins/jquery" />
 <spring:url var="js15" value="/plugins/jquery-ui" />
+<spring:url var="js16" value="https://code.jquery.com" />
+<spring:url var="js17" value="https://cdn.datatables.net/1.10.22/js" />
 
 <!DOCTYPE html>
 <html>
@@ -58,10 +61,14 @@
   <link rel="stylesheet" href="${css7}/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="${css8}/summernote-bs4.css">
+  
+  <link rel="stylesheet" href="${css9}/jquery.dataTables.min.css">
+  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   
   <script>
+  
 	window.menu = '${title}';
 	window.contextRoot = '${contextRoot}'
 	window.userID='${sessionScope.role}'
@@ -227,7 +234,11 @@
 <script src="${js13}/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${js12}/demo.js"></script>
-
-		
+<script src="${js16}/jquery-3.5.1.js"></script>
+<script src="${js17}/jquery.dataTables.min.js"></script>
+<script src="${js12}/myapp.js"></script>
+	
+ 
+ 	
 </body>
 </html>

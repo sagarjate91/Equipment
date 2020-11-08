@@ -22,7 +22,6 @@ public class AdminJSONController {
 
 	@GetMapping("/all/Users")
 	public List<Customer> users() {
-		System.out.println("Rest called..");
 		return service.users();
 	}
 	
