@@ -138,7 +138,7 @@ public class HomeController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session, Model model) {
 		session.invalidate();
-		model.addAttribute("userClickHome", true);
-		return "redirect:/measuring/equipment/";
+		model.addAttribute("userClickUser", true);
+		return "redirect:/measuring/equipment/login";
 	}
 }

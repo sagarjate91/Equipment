@@ -1,3 +1,6 @@
+
+$('.datepicker').datepicker();
+    
 var $tableUser = $('#userListTable');
 
 	if ($tableUser.length) {
