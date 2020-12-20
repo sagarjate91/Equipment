@@ -1,5 +1,5 @@
 
-$('.datepicker').datepicker();
+
     
 var $tableUser = $('#userListTable');
 

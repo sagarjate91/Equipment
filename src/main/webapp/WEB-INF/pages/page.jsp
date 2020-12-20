@@ -65,9 +65,7 @@
   
   <link rel="stylesheet" href="${css5}/mycss.css">
   
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-   -->
-  
+ 
   <script>
   
 	window.menu = '${title}';
@@ -207,10 +205,12 @@
 <script src="${js14}/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="${js15}/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+
+<script src="${js16}/jquery-3.5.1.js"></script>
+<script src="${js17}/jquery.dataTables.min.js"></script>
+<script src="${js12}/myapp.js"></script>
+<script src="${js12}/bootbox.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="${js1}/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
@@ -235,10 +235,7 @@
 <script src="${js13}/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${js12}/demo.js"></script>
-<script src="${js16}/jquery-3.5.1.js"></script>
-<script src="${js17}/jquery.dataTables.min.js"></script>
-<script src="${js12}/myapp.js"></script>
-	
+
  
  	
 </body>
