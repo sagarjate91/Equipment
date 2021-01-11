@@ -23,9 +23,9 @@
 						<div class="form-group">
 							<label for="inputName">EQUIPMENT ID</label>
 							<sf:input path="equipmentId" id="equipmentId"
-								placeholder="Equipment Id" />
-							<sf:input path="equipmen_sn" id="equipmen_sn" placeholder="SN" />
-							<sf:hidden path="id" id="id" class="form-control" readonly="true" />
+								placeholder="Equipment Id" class="form-control"/>
+							<sf:input path="equipmen_sn" id="equipmen_sn" class="form-control" placeholder="SN" />
+							<sf:hidden path="id" id="id" readonly="true" />
 							<sf:errors path="equipmentId" cssClass="help-block" element="em" />
 						</div>
 
@@ -97,17 +97,7 @@
 									element="em" />
 							</div>
 						</div>
-
-					</div>
-					<!-- /.card-body -->
-				</div>
-				<!-- /.card -->
-			</div>
-			<div class="col-md-6">
-				<div class="card card-primary">
-
-					<div class="card-body">
-
+						
 						<div class="form-group">
 							<label for="equipmentReasonForUpdate"
 								class="col-md-4 control-label"> REASON FOR UPDATE: </label>
@@ -142,10 +132,10 @@
 									element="em" />
 							</div>
 						</div>
-
+						
 						<c:if test="${userClickUpdate==true}">
-
-							<div class="form-group">
+						
+						<div class="form-group">
 								<label for="equipmentCalibrationLaboratory"
 									class="col-md-4 control-label"><span
 									class="text-uppercase">Calibration Laboratory:</span></label>
@@ -157,7 +147,23 @@
 										cssClass="help-block" element="em" />
 								</div>
 							</div>
+							
+							</c:if>
+						
 
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</div>
+			<div class="col-md-6">
+				<div class="card card-primary">
+				
+				<c:if test="${userClickUpdate==true}">
+				
+					<div class="card-body">
+
+							
 							<div class="form-group">
 								<label for=equipmentCalibrationCertificateNo
 									class="col-md-4 control-label"><span
@@ -313,7 +319,7 @@
 
 
 					<input type="submit" value="Update Equipment"
-						class="btn btn-success float-right">
+						class="btn btn-success">
 
 
 				</c:if>
@@ -321,7 +327,7 @@
 				<c:if test="${userClickUpdate==null}">
 
 					<input type="submit" value="Create New Equipment"
-						class="btn btn-success float-right" />
+						class="btn btn-success" />
 
 				</c:if>
 

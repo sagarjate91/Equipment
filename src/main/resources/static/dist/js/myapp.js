@@ -1,4 +1,261 @@
 
+/* .......................................... */
+
+	var $acceptantlist = $('#acceptantlist');
+
+	if ($acceptantlist.length) {
+
+		var jsonUrl = jsonUrl = window.contextRoot + '/customer/all/acceptant';
+
+		$acceptantlist
+				.DataTable({
+					lengthMenu : [ [ 3, 5, 10, -1 ],
+							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
+					pageLength : 5,
+					ajax : {
+						url : jsonUrl,
+						dataSrc : ''
+					},
+					columns : [
+						
+						   {
+								data : 'id',
+								bSortable : false,
+								mRender : function(data, type, row) {
+
+									var str = '';
+									str += '<a href="'
+											+ window.contextRoot
+											+ '/measuring/equipment/customer/'
+											+ row.id
+											+ '/acceptant-register" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
+									return str;
+								}
+							},
+
+							{
+								data : 'equipmentId',
+							},
+							{
+								data : 'equipmentDescription',
+							},
+							{
+								data : 'equipmentRange',
+							},
+							{
+								data : 'applicationRange',
+							},
+							{
+								data : 'equipmentLeastCount',
+							},
+							{
+								data : 'equipmentAccurency',
+							},
+							{
+								data : 'parameterLowestTolerance',
+							},
+							{
+								data : 'acceptantCriteria',
+							},
+							{
+								data : 'equipmentUnit',
+							},
+							{
+								data : 'referenceStandard',
+							},
+							{
+								data : 'clauseNo',
+							}
+						]
+
+				});
+	}
+
+
+	/* .......................................... */
+	
+	var $laboratorylist = $('#laboratorylist');
+
+	if ($laboratorylist.length) {
+
+		var jsonUrl = jsonUrl = window.contextRoot + '/customer/all/laboratory';
+
+		$laboratorylist
+				.DataTable({
+					lengthMenu : [ [ 3, 5, 10, -1 ],
+							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
+					pageLength : 5,
+					ajax : {
+						url : jsonUrl,
+						dataSrc : ''
+					},
+					columns : [
+						
+						    {
+								data : 'laboratoryName',
+							},
+							{
+								data : 'address',
+							},
+							{
+								data : 'contactNumber',
+							},
+							{
+								data : 'emailId',
+							},
+							{
+								data : 'calibrationScope',
+							},
+							{
+								data : 'scopeCopy',
+							},
+							{
+								data : 'certificationDetails',
+							},
+							{
+								data : 'certificationNo',
+							},
+							{
+								data : 'certificationCopy',
+							},
+							{
+								data : 'certificattionDate',
+							},
+							{
+								data : 'expiryDate',
+							},
+							{
+								data : 'note',
+							},
+							{
+								data : 'reminderOneMonthBeforeExpiryDate',
+							}
+						]
+
+				});
+	}
+
+
+
+	/*------*/
+
+
+// .....................................................................................
+
+	var $loginForm = $('#loginForm');
+
+	if ($loginForm.length) {
+
+		$loginForm.validate({
+			rules : {
+				userName : {
+					required : true,
+				},
+				password : {
+					required : true,
+				}
+			},
+			messages : {
+				userName : {
+					required : 'Please enter your username!',
+				},
+				password : {
+					required : 'Please enter your password!'
+				}
+			},
+			errorElement : "em",
+			errorPlacement : function(error, element) {
+				// Add the 'help-block' class to the error element
+				error.addClass("help-block");
+
+				// add the error label after the input element
+				error.insertAfter(element);
+			}
+		}
+
+		);
+
+	}
+
+	/* .......................................... */
+
+
+/* validating the loginform */
+
+	var $userForm = $('#userForm');
+
+	if ($userForm.length) {
+
+		$userForm.validate({
+			rules : {
+
+				firstName : {
+					required : true,
+				},
+				lastName : {
+					required : true,
+				},
+				userName : {
+					required : true,
+				},
+				email : {
+					required : true,
+					email : true
+				},
+				password : {
+					required : true
+				},
+				mobileNumber : {
+					required : true
+				},
+				pinCode : {
+					required : true
+				},
+				address : {
+					required : true
+				}
+			},
+			messages : {
+				firstName : {
+					required : 'Please enter your firstname!'
+				},
+				lastName : {
+					required : 'Please enter your lastname!'
+				},
+				userName : {
+					required : 'Please enter your username!'
+				},
+				email : {
+					required : 'Please enter your email!',
+					email : 'Please enter a valid email address!'
+				},
+				password : {
+					required : 'Please enter your password!'
+				},
+				mobileNumber : {
+					required : 'Please enter your mobile number!',
+				},
+				pinCode : {
+					required : 'Please enter your pincode!'
+				},
+				address : {
+					required : 'Please enter your address!'
+				}
+			},
+			errorElement : "em",
+			errorPlacement : function(error, element) {
+				// Add the 'help-block' class to the error element
+				error.addClass("help-block");
+
+				// add the error label after the input element
+				error.insertAfter(element);
+			}
+		}
+
+		);
+
+	}
+
 
     
 var $tableUser = $('#userListTable');
@@ -129,3 +386,72 @@ var $tableUser = $('#userListTable');
 					}
 				});
 	}
+
+	
+	
+	/* .......................................... */
+
+	var $equipmentlist = $('#equipmentlist');
+
+	if ($equipmentlist.length) {
+
+		var jsonUrl = jsonUrl = window.contextRoot + '/customer/all/equipment';
+
+		$equipmentlist
+				.DataTable({
+					lengthMenu : [ [ 3, 5, 10, -1 ],
+							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
+					pageLength : 5,
+					ajax : {
+						url : jsonUrl,
+						dataSrc : ''
+					},
+					columns : [
+						
+						{
+							data : 'id',
+							bSortable : false,
+							mRender : function(data, type, row) {
+
+								var str = '';
+								str += '<a href="'
+										+ window.contextRoot
+										+ '/measuring/equipment/customer/'
+										+ row.id
+										+ '/update" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
+								return str;
+							}
+						   },
+
+							{
+								data : 'equipmentId',
+							},
+							{
+								data : 'equipmentDescription',
+							},
+							{
+								data : 'equipmentLeastCount',
+							},
+							{
+								data : 'equipmentUnit',
+							},
+							{
+								data : 'equipmentManfacturerName',
+							},
+							{
+								data : 'equipmentCreatedBy',
+							},
+							{
+								data : 'equipmentCreatedDate',
+							},
+							{
+								data : 'equipmentCreatedTime',
+							},
+							{
+								data : 'equipmentReasonForUpdate',
+							}
+						]
+
+				});
+	}
+	

@@ -43,5 +43,9 @@ public class Equipment {
 	private String equipmentCreatedTime;
 	@NotBlank
 	private String equipmentReasonForUpdate;
+	@NotBlank
+	private String equipmentCalibrationFrequency;
+	@NotBlank
+	private String equipmentType;
 	
 }

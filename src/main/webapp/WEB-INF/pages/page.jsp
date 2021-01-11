@@ -129,52 +129,66 @@
     --%> 
     <c:if test="${sessionScope.role==null}">
 
-			            <c:if test="${userClickHome==true}">
-				            <%@ include file="index.jsp" %>
-			            </c:if>
+				<c:if test="${userClickHome==true}">
+					<%@ include file="index.jsp"%>
+				</c:if>
 
-			            <c:if test="${userClickUser==true or userClickAdmin==true}">
-				            <%@ include file="login.jsp" %>
-			            </c:if>
+				<c:if test="${userClickUser==true or userClickAdmin==true}">
+					<%@ include file="login.jsp"%>
+				</c:if>
 
-			            <c:if test="${userClickRegister==true}">
-				            <%@ include file="sign-up.jsp" %>
-			            </c:if>
+				<c:if test="${userClickRegister==true}">
+					<%@ include file="sign-up.jsp"%>
+				</c:if>
 
-            </c:if>
+			</c:if>
 
-           <c:if test="${sessionScope.role=='ADMIN'}">
+			<c:if test="${sessionScope.role=='ADMIN'}">
 
-                        <c:if test="${userClickAdminHome==true}">
-            				<%@ include file="admin-home.jsp" %>
- 		                </c:if>
+				<c:if test="${userClickAdminHome==true}">
+					<%@ include file="admin-home.jsp"%>
+				</c:if>
 
-            </c:if>
-           
- 			<c:if test="${sessionScope.role=='CUSTOMER'}">
+			</c:if>
 
-                         <c:if test="${userClickHome==true}">
+			<c:if test="${sessionScope.role=='CUSTOMER'}">
+			
+			  <c:if test="${userClickHome==true}">
             				<%@ include file="dashboard.jsp" %>
             			</c:if>
-                        
-                        <c:if test="${userClickNewEquipment==true}">
-            				<%@ include file="new-customer-equipment.jsp" %>
-            			</c:if>
-            			
-            			<c:if test="${userClickUpdateEquipment==true}">
-            				<%@ include file="update-customer-equipment.jsp" %>
-            			</c:if>
-            			
-            			<c:if test="${userClickIssueEquipment==true || userClickIssueEquipment==true}">
-            				<%@ include file="issue-equipment.jsp" %>
-            			</c:if>
-            			
-            			<c:if test="${userClickAcceptantEquipment==true}">
-            				<%@ include file="issue-equipment.jsp" %>
-            			</c:if>
 
-            </c:if>
-           
+				<c:if test="${userClickNewEquipment==true}">
+					<%@ include file="new-customer-equipment.jsp"%>
+				</c:if>
+
+				<c:if test="${userClickUpdateEquipment==true}">
+					<%@ include file="update-customer-equipment.jsp"%>
+				</c:if>
+
+				<c:if
+					test="${userClickIssueEquipment==true || userClickIssueEquipment==true}">
+					<%@ include file="issue-equipment.jsp"%>
+				</c:if>
+
+				<c:if test="${userClickAcceptantEquipment==true}">
+					<%@ include file="acceptant.jsp"%>
+				</c:if>
+
+				<c:if test="${userClickAcceptantCriteria==true}">
+					<%@ include file="acceptant-criteria.jsp"%>
+				</c:if>
+
+				<c:if test="${userClickLaboratory==true}">
+					<%@ include file="laboratory.jsp"%>
+				</c:if>
+
+
+				<c:if test="${userClickLaboratoryList==true}">
+					<%@ include file="approved-laboratory.jsp"%>
+				</c:if>
+
+			</c:if>
+
     
     
                

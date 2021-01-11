@@ -16,11 +16,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.measuring.equipment.common.AcceptantDTO;
 import com.measuring.equipment.common.EquipmentDTO;
+import com.measuring.equipment.common.LaboratoryDTO;
+import com.measuring.equipment.model.Acceptant;
 import com.measuring.equipment.model.Equipment;
 import com.measuring.equipment.model.IssueEquipment;
+import com.measuring.equipment.model.Laboratory;
 import com.measuring.equipment.model.Uequipment;
+import com.measuring.equipment.repository.AcceptantRepository;
 import com.measuring.equipment.repository.EquipmentRepository;
+import com.measuring.equipment.repository.LaboratoryResponsitory;
 import com.measuring.equipment.repository.UequipmentRepository;
 import com.measuring.equipment.services.ConstantService;
 import com.measuring.equipment.services.ReportService;
@@ -42,13 +48,19 @@ public class EquipmentController {
 	@Autowired
 	ReportService reportService;
 	
+	@Autowired
+	AcceptantRepository acceptantRepository;
+	
+	@Autowired
+	LaboratoryResponsitory laboratoryResponsitory;
+	
 	@GetMapping("/report")
 	public void exportReport(HttpServletResponse response) throws JRException, IOException{
 		reportService.exportReport(response);
 	}
 	
 	@GetMapping("/customer-home.htm")
-	public String customerHome(Model model, @ModelAttribute("message") String message) {
+	public String equipmentCustomer(Model model, @ModelAttribute("message") String message) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "New Customer");
 		model.addAttribute("userClickHome", true);
@@ -68,6 +80,54 @@ public class EquipmentController {
 		}
 		return "page";
 	}
+	
+	@GetMapping("/acceptant-register")
+	public String equipmentAcceptant(Model model) {
+		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+		model.addAttribute(ConstantService.TITLE, "Acceptant Criteria");
+		model.addAttribute("userClickAcceptantCriteria", true);
+		model.addAttribute("equipmentUnits", Units.units());
+		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-acceptant-register");
+		model.addAttribute(ConstantService.COMMAND, new AcceptantDTO());
+		return "page";
+	}
+	
+	@PostMapping("/equipment-acceptant-register")
+	public String equipmentAcceptantAdd(Model model,@ModelAttribute("command") AcceptantDTO acceptantDTO) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+		
+		Acceptant acceptant=new Acceptant();
+		
+		if(acceptantDTO==null)
+			throw new NullPointerException();
+		
+		PropertyUtils.copyProperties(acceptant,acceptantDTO);
+		
+		acceptantRepository.saveAndFlush(acceptant);
+		
+		model.addAttribute(ConstantService.TITLE, "Acceptant Criteria");
+		model.addAttribute("userClickAcceptantCriteria", true);
+		model.addAttribute("equipmentUnits", Units.units());
+		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-acceptant-register");
+		model.addAttribute(ConstantService.COMMAND, new AcceptantDTO());
+		model.addAttribute(ConstantService.MESSAGE, "Acceptant added successfully");
+		return "page";
+	}
+	
+	@GetMapping("/{id}/acceptant-register")
+	public String showSingleAcceptant(@PathVariable long id, Model model) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+	
+		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+		model.addAttribute(ConstantService.TITLE, "Acceptant Criteria");
+		model.addAttribute("userClickAcceptantCriteria", true);
+		model.addAttribute("equipmentUnits", Units.units());
+		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-acceptant-register");
+		Acceptant acceptant=acceptantRepository.findById(id).orElse(null);
+		AcceptantDTO acceptantDTO=new AcceptantDTO();
+		PropertyUtils.copyProperties(acceptantDTO,acceptant);
+		model.addAttribute(ConstantService.COMMAND,acceptantDTO);
+		return "page";
+	}
+	
 	
 	@GetMapping("/update-equipment.htm")
 	public String equipmentUpdate(Model model) {
@@ -109,8 +169,34 @@ public class EquipmentController {
 	public String issueListApproved(Model model) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Approved List");
-		model.addAttribute("userClickUpdateEquipment", true);
-		model.addAttribute(ConstantService.COMMAND, new IssueEquipment());
+		model.addAttribute("userClickLaboratory", true);
+		return "page";
+	}
+	
+	@GetMapping("/laboratory.htm")
+	public String issueListApprovedAdd(Model model) {
+		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+		model.addAttribute(ConstantService.TITLE, "Approved List");
+		model.addAttribute("userClickLaboratoryList", true);
+		model.addAttribute(ConstantService.COMMAND, new LaboratoryDTO());
+		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-approved-laboratory-add");
+		return "page";
+	}
+	
+	@PostMapping("/equipment-approved-laboratory-add")
+	public String approvedLaboratory(Model model,@ModelAttribute("command") LaboratoryDTO laboratoryDTO) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException{
+		if(laboratoryDTO==null)
+			throw new NullPointerException();
+		
+		Laboratory laboratory=new Laboratory();
+		PropertyUtils.copyProperties(laboratory,laboratoryDTO);
+		laboratoryResponsitory.saveAndFlush(laboratory);
+		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+		model.addAttribute(ConstantService.TITLE, "Approved List");
+		model.addAttribute("userClickLaboratoryList", true);
+		model.addAttribute(ConstantService.COMMAND, new LaboratoryDTO());
+		model.addAttribute(ConstantService.MESSAGE, "Laboratory added successfully");
+		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-approved-laboratory-add");
 		return "page";
 	}
 	
@@ -125,13 +211,14 @@ public class EquipmentController {
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-update");
 		EquipmentDTO equipmentDTO=new EquipmentDTO();
 		Equipment equipment=erepo.findById(id).orElse(null);
+		//Uequipment uequipment=UequipmentRepo.findById(id).orElse(null);
 		if(equipment==null){
 			throw new NullPointerException();
 		}
+		System.out.println(equipment);
+		//System.out.println(uequipment);
 		PropertyUtils.copyProperties(equipmentDTO,equipment);
-		String e[]=equipment.getEquipmentId().split("_");
-		equipmentDTO.setEquipmentId(e[0]);
-		equipmentDTO.setEquipmen_sn(e[1]);
+		//PropertyUtils.copyProperties(equipmentDTO,uequipment);
 		model.addAttribute(ConstantService.COMMAND,equipmentDTO);
 		return "page";
 	}
@@ -162,9 +249,8 @@ public class EquipmentController {
 		
 		Equipment equipment=new Equipment();
 		PropertyUtils.copyProperties(equipment, equipmentDTO);
-		System.out.println(equipment);
+		//System.out.println(equipment);
 		
-		equipment.setEquipmentId(equipment.getEquipmentId()+"_"+equipment.getEquipmen_sn());
 		erepo.save(equipment);
 		redirectAttributes.addFlashAttribute(ConstantService.MESSAGE, "Equipment added successfully....!!!");
 		return "redirect:/measuring/equipment/customer/new-equipment.htm";
@@ -179,7 +265,6 @@ public class EquipmentController {
 		PropertyUtils.copyProperties(equipment, equipmentDTO);
 		PropertyUtils.copyProperties(uequipment, equipmentDTO);
 		
-		System.out.println(equipment+"\t"+uequipment);
 		uequipment.setEquipment(equipment);
 		
 		if(!equipmentDTO.getFile().getOriginalFilename().equals("")){

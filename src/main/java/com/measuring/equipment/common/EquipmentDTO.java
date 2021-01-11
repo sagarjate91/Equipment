@@ -35,6 +35,7 @@ public class EquipmentDTO {
 	private String equipmentAcceptanceCriteriaUnit;
 	private String equipmentDecisionOurRemark;
 	private String equipmentLocation;
+	private String equipmentCalibrationDate;
 	private String equipmentCalibrationExpiryDate;
 	private String equipmentType;
 	private String notesValues;
