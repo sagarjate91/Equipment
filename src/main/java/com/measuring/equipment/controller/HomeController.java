@@ -24,15 +24,8 @@ public class HomeController {
 
 	@Autowired
 	CustomerRepository repo;
-	
-	@GetMapping({ "/", "/home.htm" ,""})
-	private String index(Model model){
-		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
-		model.addAttribute(ConstantService.TITLE, "Home Panel");
-		return "main";
-	}
 
-	@GetMapping({ "/login", "/customer.htm" ,"/login.htm"})
+	@GetMapping({ "/login", "/customer.htm" ,"/login.htm","/"})
 	public String loginUser(Model model, @ModelAttribute("message") String message) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Customer Panel");

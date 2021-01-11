@@ -53,7 +53,7 @@
 		<div class="small-box bg-warning">
 			<div class="inner">
 				<h3>3</h3>
-				<a href="#">
+				<a href="${contextRoot}/measuring/equipment/customer/issue-equipment.htm">
 					<p>
 						<span style="color: black;">Update Equipments Issue To /
 							From Shopfloor and Remark</span>
@@ -116,7 +116,7 @@
 		<div class="small-box bg-success">
 			<div class="inner">
 				<h3>6</h3>
-				<a href="#">
+				<a href="${contextRoot}/measuring/equipment/customer/acceptant-criteria.htm">
 					<p>
 						<span style="color: white;">Acceptance Criteria</span>
 					</p>
@@ -135,7 +135,7 @@
 		<div class="small-box bg-warning">
 			<div class="inner">
 				<h3>7</h3>
-				<a href="#">
+				<a href="${contextRoot}/measuring/equipment/customer/history-card.htm">
 					<p>
 						<span style="color: black;">Measuring Equipment History
 							Card</span>
@@ -155,7 +155,7 @@
 		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3>8</h3>
-				<a href="#">
+				<a href="${contextRoot}/measuring/equipment/customer/list-laboratory.htm">
 					<p>
 						<span style="color: white;">List of Approved Laboratory</span>
 					</p>

@@ -13,9 +13,5 @@ public class EquipmentApplication {
 		SpringApplication.run(EquipmentApplication.class, args);
 	}
 	
-	@GetMapping("/")
-	public String index(){
-		return "page";
-	}
 
 }
