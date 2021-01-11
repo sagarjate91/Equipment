@@ -115,7 +115,6 @@ public class EquipmentController {
 	
 	@GetMapping("/{id}/acceptant-register")
 	public String showSingleAcceptant(@PathVariable long id, Model model) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-	
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Acceptant Criteria");
 		model.addAttribute("userClickAcceptantCriteria", true);
@@ -187,7 +186,6 @@ public class EquipmentController {
 	public String approvedLaboratory(Model model,@ModelAttribute("command") LaboratoryDTO laboratoryDTO) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException{
 		if(laboratoryDTO==null)
 			throw new NullPointerException();
-		
 		Laboratory laboratory=new Laboratory();
 		PropertyUtils.copyProperties(laboratory,laboratoryDTO);
 		laboratoryResponsitory.saveAndFlush(laboratory);
@@ -215,7 +213,7 @@ public class EquipmentController {
 		if(equipment==null){
 			throw new NullPointerException();
 		}
-		System.out.println(equipment);
+		//System.out.println(equipment);
 		//System.out.println(uequipment);
 		PropertyUtils.copyProperties(equipmentDTO,equipment);
 		//PropertyUtils.copyProperties(equipmentDTO,uequipment);
