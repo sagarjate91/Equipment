@@ -7,4 +7,6 @@ import com.measuring.equipment.model.Acceptant;
 
 public interface AcceptantRepository extends JpaRepository<Acceptant,Long>{
 
+    Acceptant findByEquipmentId(String id);
+
 }

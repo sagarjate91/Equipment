@@ -210,14 +210,15 @@ public class EquipmentController {
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-update");
 		EquipmentDTO equipmentDTO=new EquipmentDTO();
 		Equipment equipment=erepo.findById(id).orElse(null);
-		//Uequipment uequipment=UequipmentRepo.findById(id).orElse(null);
+
+		Acceptant acceptant=acceptantRepository.findByEquipmentId(equipment.getEquipmentId());
+		//System.out.println(acceptant);
 		if(equipment==null){
 			throw new NullPointerException();
 		}
-		//System.out.println(equipment);
-		//System.out.println(uequipment);
 		PropertyUtils.copyProperties(equipmentDTO,equipment);
-		//PropertyUtils.copyProperties(equipmentDTO,uequipment);
+		equipmentDTO.setEquipmentAcceptanceCriteria(acceptant.getAcceptantCriteria());
+		equipmentDTO.setEquipmentAcceptanceCriteriaUnit(acceptant.getEquipmentUnit());
 		model.addAttribute(ConstantService.COMMAND,equipmentDTO);
 		return "page";
 	}

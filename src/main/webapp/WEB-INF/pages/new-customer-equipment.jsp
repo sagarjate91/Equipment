@@ -1,20 +1,5 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>
 
-$(document).ready(function (){
-   $("#id_equipmentCalibrationResults").click(function (){
-    var equipmentAcceptanceCriteria = $("#equipmentAcceptanceCriteria").val();
-        var equipmentCalibrationResults = $("#equipmentCalibrationResults").val();
-                  if(equipmentAcceptanceCriteria>=equipmentCalibrationResults){
-                        $("#equipmentDecisionOurRemark").val("fail");
-                  }else{
-                        $("#equipmentDecisionOurRemark").val("pass");
-                 }
-      });
-     });
-
-</script
 <sf:form action="${contextRoot}/${action}" modelAttribute="command"
 	method="POST" enctype="multipart/form-data" class="form-horizontal"
 	id="userForm">
@@ -213,7 +198,7 @@ $(document).ready(function (){
 										placeholder="Enter the calibration results"></sf:input>
 									<sf:errors path="equipmentCalibrationResults"
 										cssClass="help-block" element="em" />
-                                     <button id="id_equipmentCalibrationResults" >Load Result</button
+                                     <button id="id_equipmentCalibrationResults">Load Result</button>
 								</div>
 							</div>
 
@@ -336,7 +321,7 @@ $(document).ready(function (){
 
 
 					<input type="submit" value="Update Equipment"
-						class="btn btn-success">
+						class="btn btn-success" />
 
 
 				</c:if>

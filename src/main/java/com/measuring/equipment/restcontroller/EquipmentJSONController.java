@@ -22,13 +22,5 @@ public class EquipmentJSONController {
 	public List<Equipment> getAllEquipment(){
 		return erepo.findAll();
 	}
-
-	@GetMapping("/all/test")
-	public String result(){
-		System.out.println("loading...");
-		return "pass";
-	}
-
-
 	
 }

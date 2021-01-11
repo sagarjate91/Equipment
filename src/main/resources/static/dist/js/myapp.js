@@ -1,5 +1,20 @@
 
 
+$(document).ready(function (){
+   $("#id_equipmentCalibrationResults").click(function (){
+    var equipmentAcceptanceCriteria = $("#equipmentAcceptanceCriteria").val();
+        var equipmentCalibrationResults = $("#equipmentCalibrationResults").val();
+                  if(equipmentAcceptanceCriteria>=equipmentCalibrationResults){
+                        $("#equipmentDecisionOurRemark").val("fail");
+                  }else{
+                        $("#equipmentDecisionOurRemark").val("pass");
+                 }
+
+                 return false;
+
+      });
+     });
+
 
 
 
@@ -147,119 +162,12 @@
 
 // .....................................................................................
 
-	var $loginForm = $('#loginForm');
 
-	if ($loginForm.length) {
-
-		$loginForm.validate({
-			rules : {
-				userName : {
-					required : true,
-				},
-				password : {
-					required : true,
-				}
-			},
-			messages : {
-				userName : {
-					required : 'Please enter your username!',
-				},
-				password : {
-					required : 'Please enter your password!'
-				}
-			},
-			errorElement : "em",
-			errorPlacement : function(error, element) {
-				// Add the 'help-block' class to the error element
-				error.addClass("help-block");
-
-				// add the error label after the input element
-				error.insertAfter(element);
-			}
-		}
-
-		);
-
-	}
 
 	/* .......................................... */
 
 
 /* validating the loginform */
-
-	var $userForm = $('#userForm');
-
-	if ($userForm.length) {
-
-		$userForm.validate({
-			rules : {
-
-				firstName : {
-					required : true,
-				},
-				lastName : {
-					required : true,
-				},
-				userName : {
-					required : true,
-				},
-				email : {
-					required : true,
-					email : true
-				},
-				password : {
-					required : true
-				},
-				mobileNumber : {
-					required : true
-				},
-				pinCode : {
-					required : true
-				},
-				address : {
-					required : true
-				}
-			},
-			messages : {
-				firstName : {
-					required : 'Please enter your firstname!'
-				},
-				lastName : {
-					required : 'Please enter your lastname!'
-				},
-				userName : {
-					required : 'Please enter your username!'
-				},
-				email : {
-					required : 'Please enter your email!',
-					email : 'Please enter a valid email address!'
-				},
-				password : {
-					required : 'Please enter your password!'
-				},
-				mobileNumber : {
-					required : 'Please enter your mobile number!',
-				},
-				pinCode : {
-					required : 'Please enter your pincode!'
-				},
-				address : {
-					required : 'Please enter your address!'
-				}
-			},
-			errorElement : "em",
-			errorPlacement : function(error, element) {
-				// Add the 'help-block' class to the error element
-				error.addClass("help-block");
-
-				// add the error label after the input element
-				error.insertAfter(element);
-			}
-		}
-
-		);
-
-	}
 
 
     
