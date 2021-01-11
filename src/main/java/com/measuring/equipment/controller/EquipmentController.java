@@ -72,6 +72,7 @@ public class EquipmentController {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "New Customer");
 		model.addAttribute("userClickNewEquipment", true);
+        model.addAttribute("active", "active");
 		model.addAttribute("equipmentUnits", Units.units());
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/customer/equipment-add");
 		model.addAttribute(ConstantService.COMMAND, new EquipmentDTO());

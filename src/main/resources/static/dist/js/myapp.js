@@ -1,4 +1,9 @@
 
+
+
+
+
+
 /* .......................................... */
 
 	var $acceptantlist = $('#acceptantlist');
@@ -73,7 +78,7 @@
 
 
 	/* .......................................... */
-	
+
 	var $laboratorylist = $('#laboratorylist');
 
 	if ($laboratorylist.length) {

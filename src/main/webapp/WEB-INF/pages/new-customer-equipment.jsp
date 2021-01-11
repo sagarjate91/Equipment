@@ -1,4 +1,20 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function (){
+   $("#id_equipmentCalibrationResults").click(function (){
+    var equipmentAcceptanceCriteria = $("#equipmentAcceptanceCriteria").val();
+        var equipmentCalibrationResults = $("#equipmentCalibrationResults").val();
+                  if(equipmentAcceptanceCriteria>=equipmentCalibrationResults){
+                        $("#equipmentDecisionOurRemark").val("fail");
+                  }else{
+                        $("#equipmentDecisionOurRemark").val("pass");
+                 }
+      });
+     });
+
+</script
 <sf:form action="${contextRoot}/${action}" modelAttribute="command"
 	method="POST" enctype="multipart/form-data" class="form-horizontal"
 	id="userForm">
@@ -197,6 +213,7 @@
 										placeholder="Enter the calibration results"></sf:input>
 									<sf:errors path="equipmentCalibrationResults"
 										cssClass="help-block" element="em" />
+                                     <button id="id_equipmentCalibrationResults" >Load Result</button
 								</div>
 							</div>
 
@@ -242,7 +259,7 @@
 							<div class="form-group">
 								<label for=equipmentDecisionOurRemark
 									class="col-md-4 control-label"><span
-									class="text-uppercase">DecisionOur Remark:</span></label>
+									class="text-uppercase">Decision Our Remark:</span></label>
 								<div class="col-md-8">
 									<sf:input path="equipmentDecisionOurRemark"
 										id="equipmentDecisionOurRemark" class="form-control"
