@@ -10,7 +10,7 @@
 
         <div class="input-group mb-3">
              <sf:input path="email" id="email" class="form-control" placeholder="Email" />
-             <sf:errors path="email" cssClass="help-block" element="em"/>
+             <sf:errors path="email" cssClass="error" style="color:red;font-style: italic;"/>
          <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -19,7 +19,7 @@
         </div>
         <div class="input-group mb-3">
               <sf:input type="password" path="password" id="password" class="form-control" placeholder="Password"/>
-              <sf:errors path="password" cssClass="help-block" element="em"/>
+              <sf:errors path="password" cssClass="error" style="color:red;font-style: italic;"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

@@ -3,20 +3,22 @@ package com.measuring.equipment.controller;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.measuring.equipment.common.UserModel;
 import com.measuring.equipment.model.Customer;
 import com.measuring.equipment.repository.CustomerRepository;
 import com.measuring.equipment.services.ConstantService;
-import com.measuring.equipment.services.URLServices;
+
+import java.lang.reflect.InvocationTargetException;
+
 
 @Controller
 @RequestMapping("/measuring/equipment")
@@ -26,24 +28,30 @@ public class HomeController {
 	CustomerRepository repo;
 
 	@GetMapping({ "/login", "/customer.htm" ,"/login.htm","/"})
-	public String loginUser(Model model, @ModelAttribute("message") String message) {
+	public String loginUser(Model model) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Customer Panel");
 		model.addAttribute("userClickUser", true);
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/login-validate");
 		model.addAttribute(ConstantService.COMMAND, new UserModel());
-		if (message != null) {
-			model.addAttribute(ConstantService.MESSAGE, message +"");
-		}
 		return "main";
 	}
 
 	@PostMapping("/login-validate")
-	public String loginValidate(@Valid @ModelAttribute("command") UserModel userModel, HttpSession session,
-			RedirectAttributes redirectAttribute, Model model) {
+	public String loginValidate(@ModelAttribute("command") @Valid  UserModel userModel, BindingResult bindingResult,HttpSession session,
+								Model model) {
+
+		if (bindingResult.hasErrors()) {
+			model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+			model.addAttribute(ConstantService.TITLE, "Customer Panel");
+			model.addAttribute("userClickUser", true);
+			model.addAttribute(ConstantService.ACTION, "measuring/equipment/login-validate");
+			return "main";
+
+		}
 
 		Customer customer = repo.findByEmail(userModel.getEmail());
-		if (customer == null) {
+		/*if (customer == null) {
 			redirectAttribute.addAttribute(ConstantService.MESSAGE, "User does not exist");
 			return URLServices.USER_URL;
 		}
@@ -54,7 +62,7 @@ public class HomeController {
 		if (customer.getStatus() != 1) {
 			redirectAttribute.addAttribute(ConstantService.MESSAGE, "Your Account not activated");
 			return URLServices.USER_URL;
-		}
+		}*/
 		addUserInSession(session, customer.getEmail(), ConstantService.USER_ROLE);
 		// set the name and the id
 		userModel.setId(customer.getId());
@@ -68,18 +76,7 @@ public class HomeController {
 		return "error.jsp";
 	}
 
-	@GetMapping({ "/signup.htm" })
-	public String signup(Model model, @ModelAttribute("message") String message) {
-		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
-		model.addAttribute(ConstantService.TITLE, "Signup Panel");
-		model.addAttribute("userClickRegister", true);
-		model.addAttribute(ConstantService.ACTION, "measuring/equipment/signup-add");
-		model.addAttribute(ConstantService.COMMAND, new UserModel());
-		if (message != null) {
-			model.addAttribute(ConstantService.MESSAGE, message + "");
-		}
-		return "main";
-	}
+
 
 	@GetMapping({ "/admin.htm" })
 	public String adminUser(@ModelAttribute("message") String message, Model model) {
@@ -108,15 +105,39 @@ public class HomeController {
 		}
 	}
 
+	@GetMapping({ "/signup.htm" })
+	public String signup(Model model, @RequestParam(value="message",required=false) String message) {
+		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+		model.addAttribute(ConstantService.TITLE, "Signup Panel");
+		model.addAttribute("userClickRegister", true);
+		model.addAttribute(ConstantService.ACTION, "measuring/equipment/signup-add");
+		model.addAttribute(ConstantService.COMMAND, new UserModel());
+		//model.addAttribute("message", "User Already added,Please try new one..!");
+		return "main";
+	}
+
 	@PostMapping("/signup-add")
-	public String user(@Valid @ModelAttribute("command") Customer customer, RedirectAttributes redirectAttributes) {
-		if (repo.findByEmail(customer.getEmail()) != null) {
-			redirectAttributes.addFlashAttribute("message", "User Already added,Please try new one..!");
-		} else {
-			repo.save(customer);
-			redirectAttributes.addFlashAttribute(ConstantService.MESSAGE, "User added successfully....!!!");
+	public String user(@ModelAttribute("command") @Valid UserModel userModel,BindingResult bindingResult,Model model) throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+
+		if (bindingResult.hasErrors()) {
+			model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+			model.addAttribute(ConstantService.TITLE, "Signup Panel");
+			model.addAttribute("userClickRegister", true);
+			model.addAttribute(ConstantService.ACTION, "measuring/equipment/signup-add");
+			return "main";
+
 		}
-		return "redirect:/measuring/equipment/signup.htm";
+
+		if (repo.findByEmail(userModel.getEmail()) != null) {
+			return "redirect:/measuring/equipment/signup.htm?message=User Already added,Please try new one..!";
+		} else {
+			Customer customer=new Customer();
+			PropertyUtils.copyProperties(customer, userModel);
+			repo.save(customer);
+			model.addAttribute(ConstantService.MESSAGE, "User added successfully....!!!");
+			return "redirect:/measuring/equipment/signup.htm?message=User added successfully....!!!";
+		}
+
 	}
 
 	public void addUserInSession(HttpSession session, String email, String role) {

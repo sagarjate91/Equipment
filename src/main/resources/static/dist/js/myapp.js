@@ -1,5 +1,6 @@
 
 
+
 $(document).ready(function (){
    $("#id_equipmentCalibrationResults").click(function (){
     var equipmentAcceptanceCriteria = $("#equipmentAcceptanceCriteria").val();

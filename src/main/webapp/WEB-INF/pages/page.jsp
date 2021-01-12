@@ -39,7 +39,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin | Dashboard</title>
+  <title>${title}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -117,13 +117,11 @@
   
      <c:if test="${not empty message}">
         		<div class="row">
-        			<div class="col-xs-12 col-md-offset-2 col-md-8">
-        				<div class="alert alert-info fade in"><h6 align="center">${message}</h6></div>
-        			</div>
+        			<h6 align="center">${message}</h6>
         		</div>
      </c:if>
     
-    
+
     
    <%--  <%@include file="dashboard.jsp"%>
     --%> 

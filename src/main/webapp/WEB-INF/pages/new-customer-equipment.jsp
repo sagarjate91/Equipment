@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<label for="inputName">EQUIPMENT ID</label>
 							<sf:input path="equipmentId" id="equipmentId"
-								placeholder="Equipment Id" class="form-control"/>
+								placeholder="Equipment Id" class="form-control" />
 							<sf:input path="equipmen_sn" id="equipmen_sn" class="form-control" placeholder="SN" />
 							<sf:hidden path="id" id="id" readonly="true" />
 							<sf:errors path="equipmentId" cssClass="help-block" element="em" />

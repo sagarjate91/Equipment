@@ -8,7 +8,7 @@
        
         <div class="input-group mb-3">
            <sf:input path="firstName" id="firstName" class="form-control" placeholder="FirstName"/>
-           <sf:errors path="firstName" cssClass="help-block" element="em"/>
+           <sf:errors path="firstName" cssClass="error" style="color:red;font-style: italic;"/>
        
           <div class="input-group-append">
             <div class="input-group-text">
@@ -20,7 +20,7 @@
         
         <div class="input-group mb-3">
            <sf:input path="lastName" id="lastName" class="form-control" placeholder="LastName"/>
-           <sf:errors path="lastName" cssClass="help-block" element="em"/>
+           <sf:errors path="lastName" cssClass="error" style="color:red;font-style: italic;"/>
       
           <div class="input-group-append">
             <div class="input-group-text">
@@ -31,7 +31,7 @@
         
          <div class="input-group mb-3">
            <sf:input path="userName" id="userName" class="form-control" placeholder="UserName"/>
-           <sf:errors path="userName" cssClass="help-block" element="em"/>
+           <sf:errors path="userName" cssClass="error" style="color:red;font-style: italic;"/>
       
           <div class="input-group-append">
             <div class="input-group-text">
@@ -42,7 +42,7 @@
         
         <div class="input-group mb-3">
            <sf:input path="email" id="email" class="form-control" placeholder="Email"/>
-           <sf:errors path="email" cssClass="help-block" element="em"/> 
+           <sf:errors path="email" cssClass="error" style="color:red;font-style: italic;"/>
            <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -51,7 +51,7 @@
         </div>
         <div class="input-group mb-3">
            <sf:input type="password" path="password" id="password" class="form-control" placeholder="Password"/>
-           <sf:errors path="password" cssClass="help-block" element="em"/> 
+           <sf:errors path="password" cssClass="error" style="color:red;font-style: italic;"/>
          <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -61,7 +61,7 @@
         
         <div class="input-group mb-3">
              <sf:input path="mobileNumber" id="mobileNumber" class="form-control" placeholder="Mobile Number"/>
-           <sf:errors path="mobileNumber" cssClass="help-block" element="em"/>
+           <sf:errors path="mobileNumber" cssClass="error" style="color:red;font-style: italic;"/>
        <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -71,7 +71,7 @@
         
         <div class="input-group mb-3">
           <sf:input path="pinCode" id="pinCode" class="form-control" placeholder="Pincode"/>
-           <sf:errors path="pinCode" cssClass="help-block" element="em"/>
+           <sf:errors path="pinCode" cssClass="error" style="color:red;font-style: italic;"/>
         <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -81,7 +81,7 @@
         
         <div class="input-group mb-3">
            <sf:textarea path="address" id="address" class="form-control" placeholder="Address"></sf:textarea>
-           <sf:errors path="address" cssClass="help-block" element="em"/> 
+           <sf:errors path="address" cssClass="error" style="color:red;font-style: italic;"/>
             <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
