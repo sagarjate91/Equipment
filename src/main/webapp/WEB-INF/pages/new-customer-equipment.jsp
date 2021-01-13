@@ -27,15 +27,14 @@
 								placeholder="Equipment Id" class="form-control" />
 							<sf:input path="equipmen_sn" id="equipmen_sn" class="form-control" placeholder="SN" />
 							<sf:hidden path="id" id="id" readonly="true" />
-							<sf:errors path="equipmentId" cssClass="help-block" element="em" />
+							<sf:errors path="equipmentId" cssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
 							<label for="equipmentDescription">DESCRIPTION</label>
 							<sf:input path="equipmentDescription" id="equipmentDescription"
 								class="form-control" placeholder="Enter the description" />
-							<sf:errors path="equipmentDescription" cssClass="help-block"
-								element="em" />
+							<sf:errors path="equipmentDescription" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -43,8 +42,7 @@
 							<label for="equipmentLeastCount">EQUIPMENT LEAST COUNT:</label>
 							<sf:input path="equipmentLeastCount" id="equipmentLeastCount"
 								class="form-control" placeholder="Enter the Least Count" />
-							<sf:errors path="equipmentLeastCount" cssClass="help-block"
-								element="em" />
+							<sf:errors path="equipmentLeastCount" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -62,8 +60,7 @@
 							<sf:input path="equipmentManfacturerName"
 								id="equipmentManfacturerName" class="form-control"
 								placeholder="Enter the manfacturer name" />
-							<sf:errors path="equipmentManfacturerName" cssClass="help-block"
-								element="em" />
+							<sf:errors path="equipmentManfacturerName" cssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
@@ -72,8 +69,7 @@
 							<div class="col-md-8">
 								<sf:input path="equipmentCreatedBy" id="equipmentCreatedBy"
 									class="form-control" placeholder="xxxxxxxxx" />
-								<sf:errors path="equipmentCreatedBy" cssClass="help-block"
-									element="em" />
+								<sf:errors path="equipmentCreatedBy" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -83,8 +79,7 @@
 							<div class="col-md-8">
 								<sf:input path="equipmentCreatedDate" id="equipmentCreatedDate"
 									class="form-control" placeholder="xxxxxxxx" />
-								<sf:errors path="equipmentCreatedDate" cssClass="help-block"
-									element="em" />
+								<sf:errors path="equipmentCreatedDate" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -94,8 +89,7 @@
 							<div class="col-md-8">
 								<sf:input path="equipmentCreatedTime" id="equipmentCreatedTime1"
 									class="form-control" placeholder="Enter the created time"></sf:input>
-								<sf:errors path="equipmentCreatedTime" cssClass="help-block"
-									element="em" />
+								<sf:errors path="equipmentCreatedTime" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 						
@@ -106,8 +100,7 @@
 								<sf:textarea path="equipmentReasonForUpdate"
 									id="equipmentReasonForUpdate" class="form-control"
 									placeholder="Enter the reason for update"></sf:textarea>
-								<sf:errors path="equipmentReasonForUpdate" cssClass="help-block"
-									element="em" />
+								<sf:errors path="equipmentReasonForUpdate" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -119,7 +112,7 @@
 									id="equipmentCalibrationFrequency" class="form-control"
 									placeholder="Enter the calibration frequency"></sf:input>
 								<sf:errors path="equipmentCalibrationFrequency"
-									cssClass="help-block" element="em" />
+									cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -129,8 +122,7 @@
 							<div class="col-md-8">
 								<sf:input path="equipmentType" id="equipmentType"
 									class="form-control" placeholder="Enter the equipment type"></sf:input>
-								<sf:errors path="equipmentType" cssClass="help-block"
-									element="em" />
+								<sf:errors path="equipmentType" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 						
@@ -145,7 +137,7 @@
 										id="equipmentCalibrationLaboratory" class="form-control"
 										placeholder="Enter the calibration frequency"></sf:input>
 									<sf:errors path="equipmentCalibrationLaboratory"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 							
@@ -174,7 +166,7 @@
 										id="equipmentCalibrationCertificateNo" class="form-control"
 										placeholder="Enter the Calibration Certificate No"></sf:input>
 									<sf:errors path="equipmentCalibrationCertificateNo"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -184,7 +176,7 @@
 								<div class="col-md-8">
 									<sf:input type="file" path="file" id="file"
 										class="form-control"></sf:input>
-									<sf:errors path="file" cssClass="help-block" element="em" />
+									<sf:errors path="file" cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -197,7 +189,7 @@
 										id="equipmentCalibrationResults" class="form-control"
 										placeholder="Enter the calibration results"></sf:input>
 									<sf:errors path="equipmentCalibrationResults"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
                                      <button id="id_equipmentCalibrationResults">Load Result</button>
 								</div>
 							</div>
@@ -211,7 +203,7 @@
 										id="equipmentCalibrationUnit" class="form-control"
 										placeholder="Enter the calibration unit"></sf:input>
 									<sf:errors path="equipmentCalibrationUnit"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -224,7 +216,7 @@
 										id="equipmentAcceptanceCriteria" class="form-control"
 										placeholder="Enter the acceptance criteria"></sf:input>
 									<sf:errors path="equipmentAcceptanceCriteria"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -237,7 +229,7 @@
 										id="equipmentAcceptanceCriteriaUnit" class="form-control"
 										placeholder="Enter the acceptance criteria unit"></sf:input>
 									<sf:errors path="equipmentAcceptanceCriteriaUnit"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -250,7 +242,7 @@
 										id="equipmentDecisionOurRemark" class="form-control"
 										placeholder="Enter the decisionOur Remark"></sf:input>
 									<sf:errors path="equipmentDecisionOurRemark"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -260,8 +252,7 @@
 								<div class="col-md-8">
 									<sf:input path="equipmentLocation" id="equipmentLocation"
 										class="form-control" placeholder="Enter the location"></sf:input>
-									<sf:errors path="equipmentLocation" cssClass="help-block"
-										element="em" />
+									<sf:errors path="equipmentLocation" cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -273,7 +264,7 @@
 										id="equipmentCalibrationDate" class="form-control"
 										placeholder="xxxxxxxx" />
 									<sf:errors path="equipmentCalibrationDate"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -287,7 +278,7 @@
 										id="equipmentCalibrationExpiryDate" class="form-control"
 										placeholder="Enter the calibration expiry date"></sf:input>
 									<sf:errors path="equipmentCalibrationExpiryDate"
-										cssClass="help-block" element="em" />
+										cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 
@@ -299,8 +290,7 @@
 								<div class="col-md-8">
 									<sf:textarea path="notesValues" id="notesValues"
 										class="form-control" placeholder="Enter the note"></sf:textarea>
-									<sf:errors path="notesValues" cssClass="help-block"
-										element="em" />
+									<sf:errors path="notesValues" cssClass="error" style="color:red;font-style: italic;"/>
 								</div>
 							</div>
 

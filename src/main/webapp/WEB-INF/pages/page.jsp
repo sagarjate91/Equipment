@@ -164,11 +164,11 @@
 				</c:if>
 
 				<c:if
-					test="${userClickIssueEquipment==true || userClickIssueEquipment==true}">
+					test="${userClickIssueEquipment==true}">
 					<%@ include file="issue-equipment.jsp"%>
 				</c:if>
 
-				<c:if test="${userClickAcceptantEquipment==true}">
+				<c:if test="${userClickHistoryEquipment==true}">
 					<%@ include file="acceptant.jsp"%>
 				</c:if>
 
