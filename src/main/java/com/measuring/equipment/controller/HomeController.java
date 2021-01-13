@@ -1,24 +1,27 @@
 package com.measuring.equipment.controller;
 
+import java.lang.reflect.InvocationTargetException;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.measuring.equipment.common.UserModel;
 import com.measuring.equipment.model.Customer;
 import com.measuring.equipment.repository.CustomerRepository;
 import com.measuring.equipment.services.ConstantService;
-
-import java.lang.reflect.InvocationTargetException;
-
+import com.measuring.equipment.services.URLServices;
 
 @Controller
 @RequestMapping("/measuring/equipment")
@@ -27,7 +30,7 @@ public class HomeController {
 	@Autowired
 	CustomerRepository repo;
 
-	@GetMapping({ "/login", "/customer.htm" ,"/login.htm","/"})
+	@GetMapping({ "/login", "/customer.htm", "/login.htm", "/" })
 	public String loginUser(Model model) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Customer Panel");
@@ -38,8 +41,10 @@ public class HomeController {
 	}
 
 	@PostMapping("/login-validate")
-	public String loginValidate(@ModelAttribute("command") @Valid  UserModel userModel, BindingResult bindingResult,HttpSession session,
-								Model model) {
+	public String loginValidate(@ModelAttribute("command") @Valid UserModel userModel, BindingResult bindingResult,
+			HttpSession session, Model model) {
+		
+		System.out.println("step loading....");
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
@@ -49,22 +54,24 @@ public class HomeController {
 			return "main";
 
 		}
-
+		System.out.println("step 1....");
 		Customer customer = repo.findByEmail(userModel.getEmail());
-		/*if (customer == null) {
-			redirectAttribute.addAttribute(ConstantService.MESSAGE, "User does not exist");
+		if (customer == null) {
+			model.addAttribute(ConstantService.MESSAGE, "User does not exist");
 			return URLServices.USER_URL;
 		}
 		if (!userModel.getPassword().trim().equals(customer.getPassword().trim())) {
-			redirectAttribute.addAttribute(ConstantService.MESSAGE, "Password mismatch");
+			model.addAttribute(ConstantService.MESSAGE, "Password mismatch");
 			return URLServices.USER_URL;
 		}
 		if (customer.getStatus() != 1) {
-			redirectAttribute.addAttribute(ConstantService.MESSAGE, "Your Account not activated");
+			model.addAttribute(ConstantService.MESSAGE, "Your Account not activated");
 			return URLServices.USER_URL;
-		}*/
+		}
+		System.out.println("step 2....");
 		addUserInSession(session, customer.getEmail(), ConstantService.USER_ROLE);
 		// set the name and the id
+		System.out.println("step 1....");
 		userModel.setId(customer.getId());
 		session.setAttribute("userModel", userModel);
 		session.setAttribute("userID", customer.getId());
@@ -75,8 +82,6 @@ public class HomeController {
 	public String error() {
 		return "error.jsp";
 	}
-
-
 
 	@GetMapping({ "/admin.htm" })
 	public String adminUser(@ModelAttribute("message") String message, Model model) {
@@ -94,8 +99,7 @@ public class HomeController {
 	@PostMapping({ "/admin-validate" })
 	public String adminValidate(@ModelAttribute("command") Customer customer, Model model, HttpSession session,
 			RedirectAttributes redirectAttributes) {
-		if (customer.getEmail().equalsIgnoreCase("admin@gmail.com")
-				&& customer.getPassword().equalsIgnoreCase("123")) {
+		if (customer.getEmail().equalsIgnoreCase("admin@gmail.com") && customer.getPassword().equalsIgnoreCase("123")) {
 			addUserInSession(session, customer.getEmail(), ConstantService.ADMIN_ROLE);
 			return "redirect:admin/adminHome.htm";
 		} else {
@@ -106,18 +110,20 @@ public class HomeController {
 	}
 
 	@GetMapping({ "/signup.htm" })
-	public String signup(Model model, @RequestParam(value="message",required=false) String message) {
+	public String signup(Model model, @RequestParam(value = "message", required = false) String message) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Signup Panel");
 		model.addAttribute("userClickRegister", true);
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/signup-add");
 		model.addAttribute(ConstantService.COMMAND, new UserModel());
-		//model.addAttribute("message", "User Already added,Please try new one..!");
+		// model.addAttribute("message", "User Already added,Please try new
+		// one..!");
 		return "main";
 	}
 
 	@PostMapping("/signup-add")
-	public String user(@ModelAttribute("command") @Valid UserModel userModel,BindingResult bindingResult,Model model) throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+	public String user(@ModelAttribute("command") @Valid UserModel userModel, BindingResult bindingResult, Model model)
+			throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
@@ -131,7 +137,7 @@ public class HomeController {
 		if (repo.findByEmail(userModel.getEmail()) != null) {
 			return "redirect:/measuring/equipment/signup.htm?message=User Already added,Please try new one..!";
 		} else {
-			Customer customer=new Customer();
+			Customer customer = new Customer();
 			PropertyUtils.copyProperties(customer, userModel);
 			repo.save(customer);
 			model.addAttribute(ConstantService.MESSAGE, "User added successfully....!!!");
