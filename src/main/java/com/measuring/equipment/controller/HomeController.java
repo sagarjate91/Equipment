@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.measuring.equipment.common.LoginModel;
 import com.measuring.equipment.common.UserModel;
 import com.measuring.equipment.model.Customer;
 import com.measuring.equipment.repository.CustomerRepository;
@@ -36,16 +37,14 @@ public class HomeController {
 		model.addAttribute(ConstantService.TITLE, "Customer Panel");
 		model.addAttribute("userClickUser", true);
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/login-validate");
-		model.addAttribute(ConstantService.COMMAND, new UserModel());
+		model.addAttribute(ConstantService.COMMAND, new LoginModel());
 		return "main";
 	}
 
 	@PostMapping("/login-validate")
-	public String loginValidate(@ModelAttribute("command") @Valid UserModel userModel, BindingResult bindingResult,
+	public String loginValidate(@ModelAttribute("command") @Valid LoginModel userModel, BindingResult bindingResult,
 			HttpSession session, Model model) {
 		
-		System.out.println("step loading....");
-
 		if (bindingResult.hasErrors()) {
 			model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 			model.addAttribute(ConstantService.TITLE, "Customer Panel");
@@ -54,7 +53,6 @@ public class HomeController {
 			return "main";
 
 		}
-		System.out.println("step 1....");
 		Customer customer = repo.findByEmail(userModel.getEmail());
 		if (customer == null) {
 			model.addAttribute(ConstantService.MESSAGE, "User does not exist");
@@ -68,10 +66,8 @@ public class HomeController {
 			model.addAttribute(ConstantService.MESSAGE, "Your Account not activated");
 			return URLServices.USER_URL;
 		}
-		System.out.println("step 2....");
 		addUserInSession(session, customer.getEmail(), ConstantService.USER_ROLE);
 		// set the name and the id
-		System.out.println("step 1....");
 		userModel.setId(customer.getId());
 		session.setAttribute("userModel", userModel);
 		session.setAttribute("userID", customer.getId());
