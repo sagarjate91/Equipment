@@ -57,7 +57,7 @@
 			</p> </a>
 			<ul class="nav nav-treeview">
 				<li class="nav-item"><a
-					href="${contextRoot}/measuring/equipment/customer/acceptant-criteria.htm"
+					href="${contextRoot}/measuring/equipment/customer/acceptant.htm"
 					class="nav-link"> <i class="far fa-circle nav-icon"></i>
 						<p>Acceptant Criteria</p>
 				</a></li>

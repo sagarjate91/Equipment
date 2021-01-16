@@ -25,8 +25,7 @@
 								NAME: </label>
 							<sf:input path="laboratoryName" id="laboratoryName"
 								class="form-control" placeholder="Enter the laboratory name" />
-							<sf:errors path="laboratoryName" cssClass="help-block"
-								element="em" />
+							<sf:errors path="laboratoryName" ccssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
@@ -34,7 +33,7 @@
 							</label>
 							<sf:input path="address" id="address" class="form-control"
 								placeholder="Enter the address" />
-							<sf:errors path="address" cssClass="help-block" element="em" />
+							<sf:errors path="address" cssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
@@ -42,8 +41,7 @@
 								NUMBER: </label>
 							<sf:input path="contactNumber" id="contactNumber"
 								class="form-control" placeholder="Enter the contact number" />
-							<sf:errors path="contactNumber" cssClass="help-block"
-								element="em" />
+							<sf:errors path="contactNumber" cssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
@@ -51,7 +49,7 @@
 								ID: </label>
 							<sf:input path="emailId" id="emailId" class="form-control"
 								placeholder="Enter the email Id" />
-							<sf:errors path="emailId" cssClass="help-block" element="em" />
+							<sf:errors path="emailId" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -60,8 +58,7 @@
 								SCOPE: </label>
 							<sf:input path="calibrationScope" id="calibrationScope"
 								class="form-control" placeholder="Enter the calibration scope" />
-							<sf:errors path="calibrationScope" cssClass="help-block"
-								element="em" />
+							<sf:errors path="calibrationScope" cssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
@@ -70,7 +67,7 @@
 							<div class="col-md-8">
 								<sf:input path="scopeCopy" id="scopeCopy" class="form-control"
 									placeholder="Enter the scope copy" />
-								<sf:errors path="scopeCopy" cssClass="help-block" element="em" />
+								<sf:errors path="scopeCopy" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -81,8 +78,7 @@
 								<sf:input path="certificationDetails" id="certificationDetails"
 									class="form-control"
 									placeholder="Enter the calibration details"></sf:input>
-								<sf:errors path="certificationDetails" cssClass="help-block"
-									element="em" />
+								<sf:errors path="certificationDetails" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -92,8 +88,7 @@
 							<div class="col-md-8">
 								<sf:input path="certificationNo" id="certificationNo"
 									class="form-control" placeholder="Enter the calibration no"></sf:input>
-								<sf:errors path="certificationNo" cssClass="help-block"
-									element="em" />
+								<sf:errors path="certificationNo" cssClass="error" style="color:red;font-style: italic;"/>
 
 							</div>
 						</div>
@@ -104,8 +99,7 @@
 							<div class="col-md-8">
 								<sf:input path="certificationCopy" id="certificationCopy"
 									class="form-control" placeholder="Enter the certification copy"></sf:input>
-								<sf:errors path="certificationCopy" cssClass="help-block"
-									element="em" />
+								<sf:errors path="certificationCopy" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -115,8 +109,7 @@
 							<div class="col-md-8">
 								<sf:input path="certificattionDate" id="certificattionDate"
 									class="form-control" placeholder="Enter the certification date"></sf:input>
-								<sf:errors path="certificattionDate" cssClass="help-block"
-									element="em" />
+								<sf:errors path="certificattionDate" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -127,7 +120,7 @@
 							<div class="col-md-8">
 								<sf:input path="expiryDate" id="expiryDate" class="form-control"
 									placeholder="Enter the expiry date"></sf:input>
-								<sf:errors path="expiryDate" cssClass="help-block" element="em" />
+								<sf:errors path="expiryDate" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -138,7 +131,7 @@
 							<div class="col-md-8">
 								<sf:input path="note" id="note" class="form-control"
 									placeholder="Enter the note"></sf:input>
-								<sf:errors path="note" cssClass="help-block" element="em" />
+								<sf:errors path="note" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -153,7 +146,7 @@
 									id="reminderOneMonthBeforeExpiryDate" class="form-control"
 									placeholder="Enter the reminder one month before expiry date"></sf:input>
 								<sf:errors path="reminderOneMonthBeforeExpiryDate"
-									cssClass="help-block" element="em" />
+									cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -172,7 +165,7 @@
 
 
 
-				<input type="submit" value="Issue Equipment" class="btn btn-success">
+				<input type="submit" value="Register" class="btn btn-success">
 
 
 

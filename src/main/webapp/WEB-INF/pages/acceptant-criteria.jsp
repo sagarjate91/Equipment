@@ -1,6 +1,6 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <sf:form action="${contextRoot}/${action}" modelAttribute="command"
-	method="POST" enctype="multipart/form-data" class="form-horizontal"
+	method="POST" class="form-horizontal"
 	id="userForm">
 
 	<!-- Main content -->
@@ -9,7 +9,7 @@
 			<div class="col-md-6">
 				<div class="card card-primary">
 					<div class="card-header">
-						<h3 class="card-title">Issue Equipment</h3>
+						<h3 class="card-title">Acceptance Criteria</h3>
 
 						<div class="card-tools">
 							<button type="button" class="btn btn-tool"
@@ -25,8 +25,7 @@
 							<sf:input path="equipmentId" id="equipmentId"
 								placeholder="Equipment Id" class="form-control" />
 							<sf:hidden path="id" id="id" class="form-control" readonly="true" />
-							<sf:errors path="equipmentId" cssClass="help-block" element="em" />
-
+							<sf:errors path="equipmentId" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -34,8 +33,7 @@
 							<label for="equipmentDescription">DESCRIPTION</label>
 							<sf:input path="equipmentDescription" id="equipmentDescription"
 								class="form-control" placeholder="Enter the description" />
-							<sf:errors path="equipmentDescription" cssClass="help-block"
-								element="em" />
+							<sf:errors path="equipmentDescription" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -44,8 +42,7 @@
 								RANGE: </label>
 							<sf:input path="equipmentRange" id="equipmentRange"
 								class="form-control" placeholder="Enter the Equipment Range" />
-							<sf:errors path="equipmentRange" cssClass="help-block"
-								element="em" />
+							<sf:errors path="equipmentRange" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -54,8 +51,7 @@
 								RANGE: </label>
 							<sf:input path="applicationRange" id="applicationRange"
 								class="form-control" placeholder="Enter the Application Range" />
-							<sf:errors path="applicationRange" cssClass="help-block"
-								element="em" />
+							<sf:errors path="applicationRange" cssClass="error" style="color:red;font-style: italic;"/>
 
 						</div>
 
@@ -64,8 +60,7 @@
 								LEAST COUNT: </label>
 							<sf:input path="equipmentLeastCount" id="equipmentLeastCount"
 								class="form-control" placeholder="Enter the Least Count" />
-							<sf:errors path="equipmentLeastCount" cssClass="help-block"
-								element="em" />
+							<sf:errors path="equipmentLeastCount" cssClass="error" style="color:red;font-style: italic;"/>
 						</div>
 
 						<div class="form-group">
@@ -74,8 +69,7 @@
 							<div class="col-md-8">
 								<sf:input path="equipmentAccurency" id="equipmentAccurency"
 									class="form-control" placeholder="Enter the Accurancy" />
-								<sf:errors path="equipmentAccurency" cssClass="help-block"
-									element="em" />
+								<sf:errors path="equipmentAccurency" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -87,8 +81,7 @@
 								<sf:input path="parameterLowestTolerance"
 									id="parameterLowestTolerance" class="form-control"
 									placeholder="Enter the parameter lowest tolerance" />
-								<sf:errors path="parameterLowestTolerance" cssClass="help-block"
-									element="em" />
+								<sf:errors path="parameterLowestTolerance" cssClass="error" style="color:red;font-style: italic;"/>
 
 							</div>
 						</div>
@@ -110,8 +103,7 @@
 								<sf:input path="acceptantCriteria" id="acceptantCriteria"
 									class="form-control"
 									placeholder="Enter the acceptance criteria"></sf:input>
-								<sf:errors path="acceptantCriteria" cssClass="help-block"
-									element="em" />
+								<sf:errors path="acceptantCriteria" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 
@@ -121,8 +113,7 @@
 							<div class="col-md-8">
 								<sf:input path="referenceStandard" id="referenceStandard"
 									class="form-control" placeholder="Enter the reference standard"></sf:input>
-								<sf:errors path="referenceStandard" cssClass="help-block"
-									element="em" />
+								<sf:errors path="referenceStandard" cssClass="error" style="color:red;font-style: italic;"/>
 
 							</div>
 						</div>
@@ -133,7 +124,7 @@
 							<div class="col-md-8">
 								<sf:input path="clauseNo" id="clauseNo" class="form-control"
 									placeholder="Enter the clause no"></sf:input>
-								<sf:errors path="clauseNo" cssClass="help-block" element="em" />
+								<sf:errors path="clauseNo" cssClass="error" style="color:red;font-style: italic;"/>
 							</div>
 						</div>
 

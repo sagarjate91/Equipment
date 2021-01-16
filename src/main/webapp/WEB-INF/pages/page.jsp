@@ -169,6 +169,10 @@
 				</c:if>
 
 				<c:if test="${userClickHistoryEquipment==true}">
+
+				</c:if>
+
+                <c:if test="${userClickAcceptant==true}">
 					<%@ include file="acceptant.jsp"%>
 				</c:if>
 

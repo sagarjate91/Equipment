@@ -56,7 +56,7 @@
 
 
 					<!-- <a href="/measuring/equipment/customer/report">Download Report</a> -->
-					<a href="/measuring/equipment/customer/acceptant-register">click here to Acceptant register</a>
+					<a href="/measuring/equipment/customer/acceptant-criteria.htm">click here to Acceptant register</a>
 
 
 

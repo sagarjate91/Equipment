@@ -77,7 +77,8 @@
         			</div>
         		</div>
      </c:if>
-    
+
+
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
