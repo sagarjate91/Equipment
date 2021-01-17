@@ -2,9 +2,11 @@ package com.measuring.equipment.controller;
 
 import java.lang.reflect.InvocationTargetException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.measuring.equipment.utility.PhysicalAddress;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,12 +34,14 @@ public class HomeController {
 	CustomerRepository repo;
 
 	@GetMapping({ "/login", "/customer.htm", "/login.htm", "/" })
-	public String loginUser(Model model) {
+	public String loginUser(Model model, HttpServletRequest request) {
 		model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
 		model.addAttribute(ConstantService.TITLE, "Customer Panel");
 		model.addAttribute("userClickUser", true);
 		model.addAttribute(ConstantService.ACTION, "measuring/equipment/login-validate");
 		model.addAttribute(ConstantService.COMMAND, new LoginModel());
+		//System.out.println("loading...."+PhysicalAddress.getRemoteAddress(request));
+		//System.out.println(PhysicalAddress.getMACAddress(PhysicalAddress.getRemoteAddress(request).toString()));
 		return "main";
 	}
 
