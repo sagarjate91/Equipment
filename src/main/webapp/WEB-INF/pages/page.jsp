@@ -64,7 +64,9 @@
   <link rel="stylesheet" href="${css9}/jquery.dataTables.min.css">
   
   <link rel="stylesheet" href="${css5}/mycss.css">
-  
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
  
   <script>
   
@@ -116,11 +118,10 @@
       <div class="container-fluid">
   
      <c:if test="${not empty message}">
-        		<div class="row">
-        			<h6 align="center">${message}</h6>
-        		</div>
-     </c:if>
-    
+             		<script>
+                                           swal('${message}', {icon: 'success'});
+                                          </script>
+          </c:if>
 
     
    <%--  <%@include file="dashboard.jsp"%>
@@ -169,7 +170,7 @@
 				</c:if>
 
 				<c:if test="${userClickHistoryEquipment==true}">
-
+                    <%@ include file="update-customer-equipment.jsp"%>
 				</c:if>
 
                 <c:if test="${userClickAcceptant==true}">

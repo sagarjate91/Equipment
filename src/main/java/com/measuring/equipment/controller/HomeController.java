@@ -131,13 +131,22 @@ public class HomeController {
 		}
 
 		if (repo.findByEmail(userModel.getEmail()) != null) {
-			return "redirect:/measuring/equipment/signup.htm?message=User Already added,Please try new one..!";
+			model.addAttribute(ConstantService.MESSAGE, "User Already added,Please try new one..!");
+            model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+            model.addAttribute(ConstantService.TITLE, "Signup Panel");
+            model.addAttribute("userClickRegister", true);
+            model.addAttribute(ConstantService.ACTION, "measuring/equipment/signup-add");
+            return "main";
 		} else {
 			Customer customer = new Customer();
 			PropertyUtils.copyProperties(customer, userModel);
 			repo.save(customer);
 			model.addAttribute(ConstantService.MESSAGE, "User added successfully....!!!");
-			return "redirect:/measuring/equipment/signup.htm?message=User added successfully....!!!";
+            model.addAttribute(ConstantService.NAME, ConstantService.TITLE);
+            model.addAttribute(ConstantService.TITLE, "Signup Panel");
+            model.addAttribute("userClickRegister", true);
+            model.addAttribute(ConstantService.ACTION, "measuring/equipment/signup-add");
+            return "main";
 		}
 
 	}

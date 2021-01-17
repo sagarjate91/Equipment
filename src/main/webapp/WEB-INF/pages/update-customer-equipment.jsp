@@ -10,6 +10,8 @@
 			<!-- /.card-header -->
 			<div class="card-body">
 
+<div class="table-responsive">
+
 
 				<table class="table table-striped table-bordered"
 						id="equipmentlist">
@@ -52,7 +54,7 @@
 
 					</table>
 
-
+</div>
 			</div>
 			<!-- /.card-body -->
 		</div>

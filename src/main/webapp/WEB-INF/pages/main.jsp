@@ -60,23 +60,18 @@
   <link rel="stylesheet" href="${css8}/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <script>
 	window.menu = '${title}';
 	window.contextRoot = '${contextRoot}'
 	window.userID='${sessionScope.role}'
-	
+
   </script>
 
 </head>
 
-<c:if test="${not empty message}">
-        		<div class="row">
-        			<div class="col-xs-12 col-md-offset-2 col-md-8">
-        				<div class="alert alert-info fade in"><h6 align="center">${message}</h6></div>
-        			</div>
-        		</div>
-     </c:if>
 
 
 <body class="hold-transition register-page">
@@ -84,8 +79,12 @@
   <div class="register-logo">
     <a href="#"><b>Equipment</b></a>
   </div>
-  
-  
+
+     <c:if test="${not empty message}">
+        		<script>
+                      swal('${message}', {icon: 'success'});
+                </script>
+     </c:if>
 
             <c:if test="${sessionScope.role==null}">
 
@@ -104,8 +103,8 @@
             </c:if>
 
 
- 
- 
+
+
 </div>
 <!-- /.register-box -->
 

@@ -10,6 +10,7 @@
 			<!-- /.card-header -->
 			<div class="card-body">
 
+<div class="table-responsive">
 
 				<table class="table table-striped table-bordered"
 						id="acceptantlist">
@@ -53,7 +54,7 @@
 						</tbody>
 
 					</table>
-
+</div>
 
 					<!-- <a href="/measuring/equipment/customer/report">Download Report</a> -->
 					<a href="/measuring/equipment/customer/acceptant-criteria.htm">click here to Acceptant register</a>

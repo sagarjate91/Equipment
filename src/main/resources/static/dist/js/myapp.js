@@ -6,9 +6,9 @@ $(document).ready(function (){
     var equipmentAcceptanceCriteria = $("#equipmentAcceptanceCriteria").val();
         var equipmentCalibrationResults = $("#equipmentCalibrationResults").val();
                   if(equipmentAcceptanceCriteria>=equipmentCalibrationResults){
-                        $("#equipmentDecisionOurRemark").val("fail");
-                  }else{
                         $("#equipmentDecisionOurRemark").val("pass");
+                  }else{
+                        $("#equipmentDecisionOurRemark").val("fail");
                  }
 
                  return false;

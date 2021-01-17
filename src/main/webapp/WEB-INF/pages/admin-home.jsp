@@ -9,7 +9,7 @@
 			</div>
 			<!-- /.card-header -->
 			<div class="card-body">
-
+<div class="table-responsive">
 
 				<table id="userListTable" class="display" style="width: 100%">
 					<thead>
@@ -43,7 +43,7 @@
 
 				</table>
 
-
+</div>
 			</div>
 			<!-- /.card-body -->
 		</div>

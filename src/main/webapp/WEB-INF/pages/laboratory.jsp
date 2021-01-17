@@ -10,6 +10,8 @@
 			<!-- /.card-header -->
 			<div class="card-body">
 
+<div class="table-responsive">
+
 
 				<table class="table table-striped table-bordered" id="laboratorylist">
 
@@ -60,7 +62,7 @@
 
 					<!-- <a href="/measuring/equipment/customer/report">Download Report</a> -->
 					<a href="/measuring/equipment/customer/laboratory.htm">click here to Approved Laboratory</a>
-
+</div>
 
 			</div>
 			<!-- /.card-body -->
